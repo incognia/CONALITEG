@@ -12,6 +12,73 @@ El 8 de agosto de 2023 se publicaron los libros correspondientes a los seis grad
 
 El sitio oficial cuenta con un lector en línea el cual renderiza un conjunto de imágenes en formato JPG, como páginas de un libro electrónico. Debido al formato empleado, no es posible realizar búsquedas de texto a menos que se ejecute un software de reconocimiento óptico de caracteres (OCR por sus siglas en inglés) en cada una de las páginas.
 
+## Estructura del repositorio
+
+```bash
+CONALITEG
+├── Primaria
+│   ├── JPG
+│   │   ├── 01
+│   │   │   ├── P1LPM
+│   │   │   ├── P1MLA
+│   │   │   ├── P1PAA
+│   │   │   ├── P1PCA
+│   │   │   ├── P1PEA
+│   │   │   ├── P1SDA
+│   │   │   └── P1TPA
+│   │   ├── 02
+│   │   │   ├── P1LPM -> ../01/P1LPM
+│   │   │   ├── P2MLA
+│   │   │   ├── P2PAA
+│   │   │   ├── P2PCA
+│   │   │   ├── P2PEA
+│   │   │   └── P2SDA
+│   │   ├── 03
+│   │   │   ├── P3LPM
+│   │   │   ├── P3MLA
+│   │   │   ├── P3PAA
+│   │   │   ├── P3PCA
+│   │   │   ├── P3PEA
+│   │   │   └── P3SDA
+│   │   ├── 04
+│   │   │   ├── P0CMA
+│   │   │   ├── P0SHA
+│   │   │   ├── P3LPM -> ../03/P3LPM
+│   │   │   ├── P4MLA
+│   │   │   ├── P4PAA
+│   │   │   ├── P4PCA
+│   │   │   ├── P4PEA
+│   │   │   └── P4SDA
+│   │   ├── 05
+│   │   │   ├── P0CMA -> ../04/P0CMA
+│   │   │   ├── P0SHA -> ../04/P0SHA
+│   │   │   ├── P5LPM
+│   │   │   ├── P5MLA
+│   │   │   ├── P5PAA
+│   │   │   ├── P5PCA
+│   │   │   ├── P5PEA
+│   │   │   └── P5SDA
+│   │   └── 06
+│   │       ├── P0CMA -> ../04/P0CMA
+│   │       ├── P0SHA -> ../04/P0SHA
+│   │       ├── P5LPM -> ../05/P5LPM
+│   │       ├── P6MLA
+│   │       ├── P6PAA
+│   │       ├── P6PCA
+│   │       ├── P6PEA
+│   │       └── P6SDA
+│   └── PDF
+│       ├── 01
+│       ├── 02
+│       ├── 03
+│       ├── 04
+│       ├── 05
+│       └── 06
+├── img
+├── sh
+└── xlsx
+```
+
 ## Cómo construí el repositorio
 
 Este repositorio contiene las imágenes descargadas, ordenadas en un directorio con el mismo nombre que el archivo `.htm` que utiliza CONALITEG para referenciar sus libros. Ver imagen:
@@ -49,6 +116,6 @@ P1LPM/
 
 <-----borrador incompleto y con typos----->
 
-[^1]: Lo más probable es que sea por "maestro y maestra" debido al desdoblamiento del género gramatical, una corrección política absurda, y así.
+[^1]: Lo más probable es que sea por "maestro y maestra" debido al desdoblamiento del género gramatical, corrección política absurda y así.
 
 <i class="fa fa-creative-commons"></i> 2023 | Rodrigo Ernesto Álvarez Aguilera | [<i class="fa fa-github"></i>](https://github.com/incognia) |  [<i class="fa fa-gitlab"></i>](https://gitlab.com/incognia) | [<i class="fa fa-behance"></i>](https://www.behance.net/incognia/) | [<i class="fa fa-linkedin"></i>](https://www.linkedin.com/in/rodrigo-alvarez-aguilera/)
