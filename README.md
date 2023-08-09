@@ -16,7 +16,7 @@ El sitio oficial cuenta con un lector en línea el cual renderiza un conjunto de
 
 Este repositorio contiene las imágenes descargadas, ordenadas en un directorio con el mismo nombre que el archivo `.htm` que utiliza CONALITEG para referenciar sus libros. Ver imagen:
 
-![Ejemplo de imagen](https://s3.hedgedoc.org/demo/uploads/a248b147-c53b-472e-bc6a-ef0f25f0eca1.png)
+![Ejemplo de imagen](https://raw.githubusercontent.com/incognia/CONALITEG/main/img/a248b147-c53b-472e-bc6a-ef0f25f0eca1.png)
 
 En la barra de navegación, se puede ver esta dirección:
 
