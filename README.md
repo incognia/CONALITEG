@@ -77,7 +77,7 @@ find . -type f -name *.jpg |wc -l
 
 Hice un par de scripts en Bash: uno para crear directorios según la nomenclatura de la web oficial y otro para descargar automáticamente los archivos .jpg, fusionarlos en un PDF y calcular las sumas MD5[^4] de las imágenes descargadas. Utilicé un archivo de Excel como paso intermedio para concatenar valores y crear la lista de URLs a descargar.
 
-Amablemente, [Roberto Andrade](https://twitter.com/randrade), un programador experto en PostgreSQL, me señaló que podría haber usado Streamlit[^5]. Estoy de acuerdo, pero no tengo tanta experiencia en Python como él, y mi formación como administrador de sistemas me hace sentir más cómodo con Bash. Además, tenía prisa para evitar que los responsables de los libros cambien de opinión o modifiquen el contenido. Si necesito hacer una segunda versión, podría considerar usar la combinación Python/PostgreSQL.
+Amablemente, [Roberto Andrade](https://twitter.com/randrade), programador experto en PostgreSQL, me señaló que podría haber usado Streamlit[^5]. Estoy de acuerdo, pero no tengo tanta experiencia en Python como él, y mi formación como administrador de sistemas me hace sentir más cómodo con Bash. Además, tenía prisa para evitar que los responsables de los libros cambien de opinión o modifiquen el contenido. Si necesito hacer una segunda versión, podría considerar usar la combinación Python/PostgreSQL.
 
 Existe un tercer script que se encarga de organizar los PDF generados. He colocado el código de todos los scripts en un [anexo](#Scripts) y en el directorio "xlsx" de este repositorio, encontrarás el archivo de Excel correspondiente.
 
@@ -154,7 +154,7 @@ CONALITEG
 
 #### `inicializa.sh`
 
-```bash=3
+```bash
 # Este script Bash realiza varias acciones relacionadas con la creación de un directorio y un archivo.
 # A continuación se detallan los pasos que realiza.
 
@@ -173,7 +173,7 @@ touch $DIR/url.txt
 
 #### `descarga.sh`
 
-```bash=3
+```bash
 # Este es un script Bash que realiza varias acciones en un directorio.
 # A continuación se detallan los pasos que realiza.
 
@@ -199,7 +199,7 @@ convert -verbose *.jpg $(echo "${PWD##*/}").pdf
 
 #### `pdf.sh`
 
-```bash=3
+```bash
 # Este script Bash realiza la acción de mover archivos PDF en diferentes subdirectorios
 # basados en el nombre de archivo que cumple con ciertos patrones.
 # A continuación, se detallan los pasos que realiza.
