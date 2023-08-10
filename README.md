@@ -75,11 +75,11 @@ find . -type f -name *.jpg |wc -l
 10040
 ```
 
-Hice un par de Scripts en Bash, uno para crear el directorio con la nomenclatura empleada por la web oficial y ortro para descargar de forma automática los archivos `.jpg`, fusionarlos dentro de un PDF y calcular las sumas MD5[^4] de cada una de las imágenes descargadas. Como paso intermedio usé un archivo de Excel para concatenar los valores y contruir la lista con las URL a descargar.
+Hice un par de scripts en Bash: uno para crear directorios según la nomenclatura de la web oficial y otro para descargar automáticamente los archivos .jpg, fusionarlos en un PDF y calcular las sumas MD5[^4] de las imágenes descargadas. Utilicé un archivo de Excel como paso intermedio para concatenar valores y crear la lista de URLs a descargar.
 
-Amablemente [Roberto Andrade](https://twitter.com/randrade), un programador experto en PostgreSQL, me señaló que pude haber hecho esto con Streamlit[^5]. Estoy de acurdo con él pero no soy tan chigón como Roberto en Python y mi *background* como *sysadmin* me hace trabajar más cómodo con Bash. Además tenía prisa no vaya a ser que los oficialistas se arrepientan de haber subido los libros o empiezen a modificarlos. Si me veo en la necesidad de hacer una segunda versión posiblemente use el combo Python/PostgreSQL.
+Amablemente, [Roberto Andrade](https://twitter.com/randrade), un programador experto en PostgreSQL, me señaló que podría haber usado Streamlit[^5]. Estoy de acuerdo, pero no tengo tanta experiencia en Python como él, y mi formación como administrador de sistemas me hace sentir más cómodo con Bash. Además, tenía prisa para evitar que los responsables de los libros cambien de opinión o modifiquen el contenido. Si necesito hacer una segunda versión, podría considerar usar la combinación Python/PostgreSQL.
 
-Dejó los scripts en un [anexo](#Scripts) y en el directiorio `xlsx` de este repositorio pueden encontrar el archivo de Excel.
+Existe un tercer script que se encarga de organizar los PDF generados. He colocado el código de todos los scripts en un [anexo](#Scripts) y en el directorio "xlsx" de este repositorio, encontrarás el archivo de Excel correspondiente.
 
 ## Anexos
 
