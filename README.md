@@ -65,7 +65,25 @@ P1LPM/
 ```
 En el árbol de arriba sólo represento algunos de los archivos dentro del direcqorio que corresponde a un libro. Si deseán ver el árbol de directorios completo, hagan clic [aquí](#%C3%81rbol-de-directorios).
 
-## Árbol de directorios
+Según lo que me arroja la salida del comando `find` descargé 10,040 (diez mil cuarenta) archivos de `.jpg` desde la web del CONALITEG. hacerlo de forma manual no era opción.
+
+```bash
+pwd
+/home/incognia/CONALITEG/Primaria
+
+find . -type f -name *.jpg |wc -l
+10040
+```
+
+Hice un par de Scripts en Bash, uno para crear el directorio con la nomenclatura empleada por la web oficial y ortro para descargar de forma automática los archivos `.jpg`, fusionarlos dentro de un PDF y calcular las sumas MD5[^4] de cada una de las imágenes descargadas. Como paso intermedio usé un archivo de Excel para concatenar los valores y contruir la lista con las URL a descargar.
+
+Amablemente [Roberto Andrade](https://twitter.com/randrade), un programador experto en PostgreSQL, me señaló que pude haber hecho esto con Streamlit[^5]. Estoy de acurdo con él pero no soy tan chigón como Roberto en Python y mi *background* como *sysadmin* me hace trabajar más cómodo con Bash. Además tenía prisa no vaya a ser que los oficialistas se arrepientan de haber subido los libros o empiezen a modificarlos. Si me veo en la necesidad de hacer una segunda versión posiblemente use el combo Python/PostgreSQL.
+
+Dejó los scripts en un [anexo](#Scripts) y en el directiorio `xlsx` de este repositorio pueden encontrar el archivo de Excel.
+
+## Anexos
+
+### Árbol de directorios
 
 ```bash
 CONALITEG
@@ -131,6 +149,82 @@ CONALITEG
 ├── sh
 └── xlsx
 ```
+
+### Scripts
+
+#### `inicializa.sh`
+
+```bash=3
+# Este script Bash realiza varias acciones relacionadas con la creación de un directorio y un archivo.
+# A continuación se detallan los pasos que realiza.
+
+# Mostrar un mensaje para solicitar al usuario que ingrese un nombre de directorio.
+echo -e "Ingresa directorio"
+
+# Leer la entrada del usuario y guardarla en la variable DIR.
+read DIR
+
+# Crear un nuevo directorio con el nombre proporcionado por el usuario.
+mkdir $DIR
+
+# Crear un archivo llamado "url.txt" dentro del directorio recién creado.
+touch $DIR/url.txt
+```
+
+#### `descarga.sh`
+
+```bash=3
+# Este es un script Bash que realiza varias acciones en un directorio.
+# A continuación se detallan los pasos que realiza.
+
+# Mostrar un mensaje para solicitar al usuario que ingrese un directorio.
+echo -e "Ingresa directorio"
+
+# Leer la entrada del usuario y guardarla en la variable DIR.
+read DIR
+
+# Cambiar al directorio ingresado por el usuario.
+cd $DIR
+
+# Descargar archivos usando el comando wget y leyendo las URLs desde el archivo url.txt.
+wget -i url.txt
+
+# Calcular los valores de hash MD5 de los archivos JPEG (*.jpg) y guardarlos en MD5SUM.
+md5sum *.jpg > MD5SUM
+
+# Utilizar el comando 'convert' para convertir imágenes JPEG (*.jpg) en un archivo PDF.
+# El nombre del archivo PDF se basa en el nombre del directorio actual.
+convert -verbose *.jpg $(echo "${PWD##*/}").pdf
+```
+
+#### `pdf.sh`
+
+```bash=3
+# Este script Bash realiza la acción de mover archivos PDF en diferentes subdirectorios
+# basados en el nombre de archivo que cumple con ciertos patrones.
+# A continuación, se detallan los pasos que realiza.
+
+# Mover archivos que comienzan con "P1" y terminan en ".pdf" al directorio PDF/01/.
+mv $(find . -type f -name "P1*.pdf") PDF/01/
+
+# Mover archivos que comienzan con "P2" y terminan en ".pdf" al directorio PDF/02/.
+mv $(find . -type f -name "P2*.pdf") PDF/02/
+
+# Mover archivos que comienzan con "P3" y terminan en ".pdf" al directorio PDF/03/.
+mv $(find . -type f -name "P3*.pdf") PDF/03/
+
+# Mover archivos que comienzan con "P4" y terminan en ".pdf" al directorio PDF/04/.
+# También se incluye un patrón que comienza con "P0" para mover archivos a PDF/04/.
+mv $(find . -type f -name "P4*.pdf") PDF/04/
+mv $(find . -type f -name "P0*.pdf") PDF/04/
+
+# Mover archivos que comienzan con "P5" y terminan en ".pdf" al directorio PDF/05/.
+mv $(find . -type f -name "P5*.pdf") PDF/05/
+
+# Mover archivos que comienzan con "P6" y terminan en ".pdf" al directorio PDF/06/.
+mv $(find . -type f -name "P6*.pdf") PDF/06/
+```
+
 <-----borrador incompleto y con typos----->
 
 [^1]: Para resumir, soy de izquierda pero no soy marxista... y tampoco lo son estos libros.
@@ -138,5 +232,9 @@ CONALITEG
 [^2]: Ese término que llaman "saberes".
 
 [^3]: Lo más probable es que sea "maestro y maestra" debido al desdoblamiento del género gramatical, una corrección política absurda, y así.
+
+[^4]: Una suma MD5 (Message Digest Algorithm 5) es un valor numérico de 128 bits generado a partir de una cadena de datos. Se utiliza comúnmente como una forma de verificar la integridad de un archivo, es decir, para confirmar que un archivo no ha sido alterado de manera inadvertida o maliciosa durante su transferencia o almacenamiento. Esto se logra calculando la suma MD5 tanto para el archivo original como para la copia recibida, y luego comparando ambas sumas.
+
+[^5]: Streamlit es una herramienta Python que convierte datos en aplicaciones web interactivas con facilidad, ideal para visualización y análisis.
 
 © 2023 | Rodrigo Ernesto Álvarez Aguilera | [Blog](https://incognia.hashnode.dev) | [Facebook](https://www.facebook.com/incognia) | [Twitter](https://twitter.com/incognia) | [LinkedIn](https://www.linkedin.com/in/rodrigo-alvarez-aguilera) | [Resume (CV )](https://incognia.github.io)
