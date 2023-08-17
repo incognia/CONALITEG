@@ -28,6 +28,7 @@ El sitio oficial cuenta con un lector en línea que muestra un conjunto de imág
 
 Este formato tampoco es muy cómodo para leerlo *offline* en un iPad o en una tablet. Un simple archivo PDF es más adecuado para este propósito. De ahí mi necesidad de descargar los libros del sitio original, compilarlos en un formato más amigable para la lectura y subirlos a un repositorio de acceso público para su difusión.
 
+**Actualización al 17 de agosto:** he subido los libros de secundaria; sin embargo, parece ser que los correspondientes al 3° año están incompletos. Subiré los libros faltantes tan pronto como estén disponibles.
 
 ## Cómo construí este repositorio
 
